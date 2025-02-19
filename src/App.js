@@ -1,22 +1,25 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+import Home from "./Home";
+import RecipeForm from "./RecipeForm";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow p-4">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/submit-recipe" element={<RecipeForm />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
